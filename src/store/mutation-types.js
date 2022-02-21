@@ -1,0 +1,7 @@
+export const INIT_WEBSOCKET = 'INIT_WEBSOCKET'
+export const SET_SID = 'SET_SID'
+export const SET_TOKEN = 'SET_TOKEN'
+export const SET_IS_LOGIN = 'SET_IS_LOGIN'
+export const SET_USERINFO = 'SET_USERINFO'
+export const SET_IS_HIDE = 'SET_IS_HIDE'
+export const SET_MESSAGE = 'SET_MESSAGE'

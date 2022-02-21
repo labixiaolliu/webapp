@@ -3,9 +3,13 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {}
+const files = require.context('./modules', false, /\.js$/)
+const modules = {}
+files.keys().forEach((key) => {
+  modules[key.replace(/(\.\/|\.js)/g, '')] = files(key).default
 })
+console.log('TCL: Data -> store', modules)
+export default new Vuex.Store({
+  modules
+})
+// export default new Vuex.Store({})
