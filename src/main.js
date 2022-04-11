@@ -2,11 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { Button, Cell } from 'mint-ui'
 
+import './plugins/mint-ui' // 加载vant-ui
+import './plugins/common' // 全局注册各个vue的component组件
+import 'normalize.css/normalize.css'
+import './assets/style/theme.scss'
 Vue.config.productionTip = false
-Vue.component(Button.name, Button)
-Vue.component(Cell.name, Cell)
 
 new Vue({
   router,
