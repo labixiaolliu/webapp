@@ -96,6 +96,11 @@ class HttpRequest {
     }
     return this.request(options)
   }
+  cancelAll() {
+    Object.keys(this.pending).forEach((key) => {
+      this.pending[key]('')
+    })
+  }
 }
 
 export default HttpRequest

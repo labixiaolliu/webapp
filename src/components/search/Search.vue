@@ -1,5 +1,5 @@
 <template>
-  <div class="search-wrap">
+  <div class="search-wrap" ref="search">
     <slot name="h-left"></slot>
     <div class="search-block">
       <i class="mintui mintui-search"></i>
@@ -34,6 +34,9 @@ export default {
       this.searchText = ''
       this.$emit('clear')
     }
+  },
+  mounted() {
+    window.forbidScroll(this.$refs.search)
   }
 }
 </script>

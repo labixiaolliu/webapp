@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-footer">
+  <div class="layout-footer" ref="footers">
     <router-link
       v-for="(item, index) of tabList"
       :key="'tab' + index"
@@ -20,12 +20,12 @@ export default {
       tabList: [
         {
           name: '首页',
-          path: '/',
+          path: '/index',
           icon: 'home'
         },
         {
           name: '消息',
-          path: '/message',
+          path: '/msg',
           icon: 'msg'
         },
         {
@@ -35,11 +35,14 @@ export default {
         },
         {
           name: '我的',
-          path: '/person',
+          path: '/user',
           icon: 'person'
         }
       ]
     }
+  },
+  mounted() {
+    window.forbidScroll(this.$refs.footers)
   }
 }
 </script>

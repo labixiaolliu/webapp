@@ -3,7 +3,27 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--设置移动端不允许缩放-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <!--对老的不支持viewport的手机做的优化-->
+    <meta name="HandheldFriendly" content="true"/>
+    <!--IOS设备设置全屏模式时，删除苹果默认的菜单栏和工具栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!--IOS展示web页面，全屏展示-->
+    <meta name="apple-touch-web-fullscreen" content="yes"/>
+    <!--IOS设备，全屏模式下title-->
+    <meta name="apple-mobile-web-app-title" content="imooc社区"/>
+    <!--IOS设备，全屏模式下状态栏颜色-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!--IOS设备中，是否识别页面中的电话邮箱-->
+    <meta name="format-detection" content="telphone=no,email=no"/>
+    <!--设置浏览器强行竖屏，适用于大部分浏览器，但在微信中无效-->
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>

@@ -43,12 +43,12 @@ const editPost = (param) => {
 // 获取帖子详情
 const getPostById = (tid) => {
   let headers = {}
-  let token = store.state.token
-  if (token) {
-    headers = {
-      Authorization: 'Bearer ' + token
-    }
-  }
+  // let token = store.state.token
+  // if (token) {
+  //   headers = {
+  //     Authorization: 'Bearer ' + token
+  //   }
+  // }
   return axios.get('/public/content/getPost?tid=' + tid, { headers: headers })
 }
 
@@ -81,6 +81,13 @@ const handComment = (param) => {
   return axios.get('/comment/hand?' + qs.stringify(param))
 }
 
+// 获取热门文章
+const getHotPost = (data) => {
+  return axios.get('public/hotPost?' + qs.stringify(data))
+}
+// 获取热门评论
+// 获取签到排行
+
 export {
   getList,
   getTips,
@@ -94,5 +101,6 @@ export {
   addComment,
   updateComment,
   acceptComment,
-  handComment
+  handComment,
+  getHotPost
 }

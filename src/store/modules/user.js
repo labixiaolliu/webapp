@@ -1,5 +1,8 @@
 import { SET_SID, SET_TOKEN, SET_IS_LOGIN, SET_USERINFO, SET_IS_HIDE } from '../mutation-types'
+import { getCode, login } from '../../api/login'
+import { v4 as uuidv4 } from 'uuid'
 export default {
+  namespaced: true,
   state: {
     sid: '',
     isLogin: false,
@@ -27,6 +30,30 @@ export default {
       state.isHide = value
     }
   },
-  actions: {},
+  actions: {
+    async getCode({ commit }) {
+      let sid = ''
+      if (localStorage.getItem('sid')) {
+        sid = localStorage.getItem('sid')
+      } else {
+        sid = uuidv4()
+        localStorage.setItem('uuid', sid)
+      }
+      commit(SET_SID, sid)
+      let code = await getCode(sid)
+      console.log('TCL: Data -> store', code)
+      return code.data
+    },
+    async getLogin({ state }, payload) {
+      // { rootState } 可以使用rootState，rootState.user.xxx
+      const res = await login({
+        ...payload,
+        sid: state.sid
+      })
+      console.log('TCL: Data -> store', payload)
+      console.log('TCL: Data -> store', state)
+      return res
+    }
+  },
   modules: {}
 }

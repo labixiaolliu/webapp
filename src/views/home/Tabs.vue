@@ -1,5 +1,5 @@
 <template>
-  <div class="tab">
+  <div class="tab" ref="tabs">
     <router-link
       v-for="(item, index) of tabList"
       :key="'hometab' + index"
@@ -17,13 +17,16 @@ export default {
   data() {
     return {
       tabList: [
-        { name: '首页', to: '/' },
+        { name: '首页', to: '/index' },
         { name: '提问', to: '/index/ask' },
         { name: '建议', to: '/index/advice' },
         { name: '分享', to: '/index/share' },
         { name: '讨论', to: '/index/discuss' }
       ]
     }
+  },
+  mounted() {
+    window.forbidScroll(this.$refs.tabs)
   }
 }
 </script>

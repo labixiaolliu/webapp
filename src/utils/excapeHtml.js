@@ -25,7 +25,7 @@ const excapeHtml = (content) => {
     let group = result.match(image)
     group.map((item) => {
       let value = item.substr(5, item.length - 6)
-      result = result.replace(item, `<img src="${value}"/>`)
+      result = result.replace(item, `<img class="inner-img" src="${value}"/>`)
     })
   }
   // 解析链接
